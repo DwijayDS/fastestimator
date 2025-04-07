@@ -40,14 +40,6 @@ def percentile(tensor: Tensor,
     b = fe.backend.percentile(n, percentiles=[66], axis=1)  # [[[2], [5], [8]]]
     ```
 
-    This method can be used with PyTorch tensors:
-    ```python
-    p = tf.constant([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-    b = fe.backend.percentile(p, percentiles=[66])  # [[[6]]]
-    b = fe.backend.percentile(p, percentiles=[66], axis=0)  # [[[4, 5, 6]]]
-    b = fe.backend.percentile(p, percentiles=[66], axis=1)  # [[[2], [5], [8]]]
-    ```
-
     Args:
         tensor: The tensor from which to extract percentiles.
         percentiles: One or more percentile values to be computed.

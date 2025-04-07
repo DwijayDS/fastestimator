@@ -18,7 +18,7 @@ import numpy as np
 import torch
 
 
-def check_nan(val: Union[int, float, np.ndarray, tf.Tensor, torch.Tensor]) -> bool:
+def check_nan(val: Union[int, float, np.ndarray, torch.Tensor]) -> bool:
     """Checks if the input contains NaN values.
 
     This method can be used with Numpy data:

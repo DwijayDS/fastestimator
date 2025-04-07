@@ -101,7 +101,7 @@ def dice_score(y_pred: Tensor,
         The dice score between `y_pred` and `y_true`.
 
     Raises:
-        AssertionError: If `y_true` or `y_pred` something other than np.array, tensor.Tensor, or tf.Tensor.
+        AssertionError: If `y_true` or `y_pred` something other than np.array, tensor.Tensor.
     """
     y_true = cast(y_true, dtype=y_pred)
     channel_axis = _get_channel_axis(y_pred)

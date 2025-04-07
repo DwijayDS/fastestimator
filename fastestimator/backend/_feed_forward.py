@@ -35,7 +35,7 @@ def feed_forward(model: torch.nn.Module, *x: Union[Tensor, np.ndarray], training
 
     Args:
         model: A neural network to run the forward step through.
-        x: One or more input tensor for the `model`. This value will be auto-cast to either a tf.Tensor or torch.Tensor
+        x: One or more input tensor for the `model`. This value will be auto-cast to either a torch.Tensor
             as applicable for the `model`.
         training: Whether this forward step is part of training or not. This may impact the behavior of `model` layers
             such as dropout.

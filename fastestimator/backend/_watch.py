@@ -16,7 +16,7 @@ from typing import Optional, TypeVar
 
 import torch
 
-Tensor = TypeVar('Tensor', torch.Tensor)
+Tensor = TypeVar('Tensor', None, torch.Tensor)
 
 
 def watch(tensor: Tensor) -> Tensor:

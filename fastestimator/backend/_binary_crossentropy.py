@@ -18,7 +18,7 @@ import torch
 
 from fastestimator.backend._reduce_mean import reduce_mean
 
-Tensor = TypeVar('Tensor', torch.Tensor, None)
+Tensor = TypeVar('Tensor', None, torch.Tensor)
 Weight_Dict = TypeVar('Weight_Dict', None, Dict[int, float])
 
 
@@ -71,8 +71,8 @@ def binary_crossentropy(y_pred: Tensor,
             sample_weights[y_true == key] = class_weights[key]
         ce = ce * sample_weights.reshape(ce.shape)
 
-        ce = ce.view(ce.shape[0], -1)
-        ce = torch.mean(ce, dim=1)
+    ce = ce.view(ce.shape[0], -1)
+    ce = torch.mean(ce, dim=1)
 
     if average_loss:
         ce = reduce_mean(ce)

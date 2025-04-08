@@ -18,8 +18,8 @@ import torch
 
 from fastestimator.backend._reduce_mean import reduce_mean
 
-Tensor = TypeVar('Tensor', torch.Tensor)
-Weight_Dict = TypeVar('Weight_Dict', Dict[int, float])
+Tensor = TypeVar('Tensor', None, torch.Tensor)
+Weight_Dict = TypeVar('Weight_Dict', None, Dict[int, float])
 
 
 def sparse_categorical_crossentropy(y_pred: Tensor,

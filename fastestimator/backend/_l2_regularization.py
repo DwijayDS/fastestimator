@@ -12,14 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import TypeVar, Union
-
 import torch
 
-Tensor = TypeVar('Tensor', None, torch.Tensor)
 
-
-def l2_regularization(model: torch.nn.Module, beta: float = 0.01) -> Tensor:
+def l2_regularization(model: torch.nn.Module, beta: float = 0.01) -> torch.Tensor:
     """Calculate L2 Norm of model weights.
 
     l2_reg = sum(parameter**2)/2

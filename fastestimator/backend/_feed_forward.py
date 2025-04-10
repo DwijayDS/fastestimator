@@ -12,17 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import TypeVar, Union
+from typing import Union
 
 import numpy as np
 import torch
 
 from fastestimator.backend._to_tensor import to_tensor
 
-Tensor = TypeVar('Tensor', None, torch.Tensor)
 
-
-def feed_forward(model: torch.nn.Module, *x: Union[Tensor, np.ndarray], training: bool = True) -> Tensor:
+def feed_forward(model: torch.nn.Module, *x: Union[torch.Tensor, np.ndarray], training: bool = True) -> torch.Tensor:
     """Run a forward step on a given model.
 
 

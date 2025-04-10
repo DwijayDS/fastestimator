@@ -12,16 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import TypeVar
-
 import torch
 import torch.nn.functional as F
 
 from fastestimator.backend._clip_by_value import clip_by_value
 from fastestimator.backend._reduce_mean import reduce_mean
 from fastestimator.backend._reduce_sum import reduce_sum
-
-Tensor = TypeVar('Tensor', None, torch.Tensor)
 
 
 def pytorch_focal_loss(y_pred: torch.Tensor,
@@ -59,15 +55,15 @@ def pytorch_focal_loss(y_pred: torch.Tensor,
     return loss
 
 
-def focal_loss(y_true: Tensor,
-               y_pred: Tensor,
+def focal_loss(y_true: torch.Tensor,
+               y_pred: torch.Tensor,
                gamma: float = 2.0,
                alpha: float = 0.25,
                from_logits: bool = False,
                normalize: bool = True,
                shape_reduction: str = "sum",
                sample_reduction: str = "mean",
-               label_smoothing: float = 0.0) -> Tensor:
+               label_smoothing: float = 0.0) -> torch.Tensor:
     """Calculate the focal loss between two tensors.
 
     Original implementation from https://github.com/facebookresearch/fvcore/blob/master/fvcore/nn/focal_loss.py .

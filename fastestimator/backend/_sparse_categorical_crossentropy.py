@@ -12,21 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import Dict, Optional, TypeVar
+from typing import Dict, Optional
 
 import torch
 
 from fastestimator.backend._reduce_mean import reduce_mean
 
-Tensor = TypeVar('Tensor', None, torch.Tensor)
-Weight_Dict = TypeVar('Weight_Dict', None, Dict[int, float])
 
-
-def sparse_categorical_crossentropy(y_pred: Tensor,
-                                    y_true: Tensor,
+def sparse_categorical_crossentropy(y_pred: torch.Tensor,
+                                    y_true: torch.Tensor,
                                     from_logits: bool = False,
                                     average_loss: bool = True,
-                                    class_weights: Optional[Weight_Dict] = None) -> Tensor:
+                                    class_weights: Optional[Dict[int, float]] = None) -> torch.Tensor:
     """Compute sparse categorical crossentropy.
 
     Note that if any of the `y_pred` values are exactly 0, this will result in a NaN output. If `from_logits` is

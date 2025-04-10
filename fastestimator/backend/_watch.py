@@ -12,14 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import Optional, TypeVar
-
 import torch
 
-Tensor = TypeVar('Tensor', None, torch.Tensor)
 
-
-def watch(tensor: Tensor) -> Tensor:
+def watch(tensor: torch.Tensor) -> torch.Tensor:
     """Monitor the given `tensor` for later gradient computations.
 
     This method can be used with PyTorch tensors:

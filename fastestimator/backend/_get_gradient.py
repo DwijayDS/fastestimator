@@ -12,19 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-from typing import Iterable, Optional, TypeVar, Union
+from typing import Iterable, Union
 
 import torch
 
-from fastestimator.util.base_util import NonContext
 
-Tensor = TypeVar('Tensor', None, torch.Tensor)
-
-
-def get_gradient(target: Tensor,
-                 sources: Union[Iterable[Tensor], Tensor],
+def get_gradient(target: torch.Tensor,
+                 sources: Union[Iterable[torch.Tensor], torch.Tensor],
                  higher_order: bool = False,
-                 retain_graph: bool = True) -> Union[Iterable[Tensor], Tensor]:
+                 retain_graph: bool = True) -> Union[Iterable[torch.Tensor], torch.Tensor]:
     """Calculate gradients of a target w.r.t sources.
 
     This method can be used with PyTorch tensors:

@@ -15,7 +15,6 @@
 import unittest
 
 import numpy as np
-import tensorflow as tf
 
 from fastestimator.backend import to_tensor, normalize
 
@@ -38,14 +37,6 @@ class TestNormalize(unittest.TestCase):
 
     def test_normalize_np_value_int(self):
         np.testing.assert_array_almost_equal(normalize(self.numpy_array_int, 0.5, 0.31382295, 11), self.expected_result)
-
-    def test_normalize_tf_value(self):
-        np.testing.assert_array_almost_equal(
-            normalize(tf.convert_to_tensor(self.numpy_array), 0.5, 0.31382295, 11.0).numpy(), self.expected_result)
-
-    def test_normalize_tf_value_int(self):
-        np.testing.assert_array_almost_equal(
-            normalize(tf.convert_to_tensor(self.numpy_array_int), 0.5, 0.31382295, 11.0).numpy(), self.expected_result)
 
     def test_normalize_torch_value(self):
         np.testing.assert_array_almost_equal(
